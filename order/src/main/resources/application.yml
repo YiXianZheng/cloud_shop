@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: order-service
+  profiles:
+    active: dev
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: order-service-group
+    inetutils:
+      timeout-seconds: 10
+
+server:
+  port: 8004
+
+###多线程配置
+threadPool:
+  ###核心线程数
+  corePoolSize: 10
+  ###最大线程数
+  maxPoolSize: 20
+  ##  队列容量
+  queueCapacity: 16
+ribbon:
+  ReadTimeout: 10000
+#  SocketTimeout: 30000
+#  ConnectTimeout: 600
+#  MaxAutoRetries: 0
+#  MaxAutoRetriesNextServer: 1
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  service:
+    vgroup-mapping:
+      order-service-group: default
+  config:
+    file:
+      name: file.conf
+  registry:
+    type: eureka
+    eureka:
+      application: default
+      service-url: http://106.13.234.26:8761/eureka/
+      weight: 1
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+      fallback:
+        enabled: true

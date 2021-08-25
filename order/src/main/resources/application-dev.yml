@@ -1,0 +1,46 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://106.13.234.26:8761/eureka/
+
+logging:
+  level:
+    com.cloud.agent: debug
+    org.springframework.cloud.netflix.feign: debug
+
+#jedis:
+#  pool:
+#    host: 127.0.0.1
+#    port: 6379
+#    password: 123456
+#    database: 16
+#    timeout: 6000ms  # ??????????
+#    expireSeconds: 120
+#    commandTimeout: 10000  #redis???????
+#    config:
+#      maxTotal: 1000
+#      maxIdle: 10
+#      maxWaitMillis: 100000
+
+spring:
+  redis:
+    open: true  # 是否开启redis缓存  true开启   false关闭
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456   # 密码（默认为空）
+    timeout: 6000ms    # 连接超时时长（毫秒）
+    expireSeconds: 120
+    commandTimeout: 10000  #redis操作的超时时间
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.13.234.26:3307/seckill?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: sdwxn@0825
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+  #  nohup  ./bin/seata-server.sh -p 8091 -h 106.13.234.26 -m file  >nohup.out 2>1 &

@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: product-service
+  profiles:
+    active: dev
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: product-service-group
+
+server:
+  port: 8003
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  service:
+    vgroup-mapping:
+      product-service-group: default
+  config:
+    file:
+      name: file.conf
+  registry:
+    type: eureka
+    eureka:
+      application: default
+      service-url: http://106.13.234.26:8761/eureka/
+      weight: 1
+  enable-auto-data-source-proxy: true
