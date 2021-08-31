@@ -1,7 +1,7 @@
-package com.shop.test;
+package com.shop.common;
 
 import com.alibaba.fastjson.JSONObject;
-import com.shop.test.utils.PostUtils;
+import com.shop.common.utils.PostUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 class TestApplicationTests {
 
     @Test
-    void contextLoads() throws IOException {
+    void contextLoads() {
 
         long begaintime = System.currentTimeMillis();//开始系统时间
 

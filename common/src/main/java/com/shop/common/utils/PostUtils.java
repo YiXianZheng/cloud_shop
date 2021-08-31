@@ -1,10 +1,13 @@
 package com.shop.common.utils;
 
+import com.alibaba.fastjson.JSONObject;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
@@ -12,6 +15,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -285,5 +289,34 @@ public class PostUtils {
         }
         //第五步：处理返回值
         return returnValue;
+    }
+
+    /**
+     * json参数post请求
+     * @param url
+     * @param jsonObject
+     * @return
+     * @throws IOException
+     */
+    public static String send(String url, JSONObject jsonObject) throws IOException {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost post = new HttpPost(url);
+        StringEntity s = new StringEntity(jsonObject.toString(), "UTF-8");
+        s.setContentType("application/json");
+
+        post.setEntity(s);
+
+        post.setHeader("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+        post.setHeader("Content-Type", "application/json");
+
+        CloseableHttpResponse response = client.execute(post);
+        HttpEntity entity = response.getEntity();
+        String body = "";
+        if (entity != null) {
+            body = EntityUtils.toString(entity);
+        }
+        EntityUtils.consume(entity);
+        response.close();
+        return body;
     }
 }
