@@ -5,13 +5,20 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shop.order.dto.PageBiDdxxTJDTO;
 import com.shop.order.entity.BiDdxxTJ;
+import com.shop.order.entity.Orders;
 import com.shop.order.mapper.BiDdxxTJMapper;
 import com.shop.order.service.BiDdxxTJService;
 import com.shop.order.util.PageResult;
 import com.shop.order.util.PageUtil;
 import com.shop.order.vo.PageBiDdxxTJVO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -41,4 +48,11 @@ public class BiDdxxTJServiceImpl extends ServiceImpl<BiDdxxTJMapper, BiDdxxTJ> i
 
         return PageUtil.PageResult(pageTestVos);
     }
+
+    @Override
+    public List<Map<String, Object>> selectAll() {
+        return ddxxTJMapper.selectAa10s();
+    }
+
+
 }

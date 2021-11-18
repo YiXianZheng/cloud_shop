@@ -18,7 +18,7 @@ class TestApplicationTests {
     @Test
     void contextLoads() {
 
-        long begaintime = System.currentTimeMillis();//开始系统时间
+        long beginTime = System.currentTimeMillis();//开始系统时间
 
         //线程池
         ExecutorService pool = Executors.newCachedThreadPool();
@@ -41,7 +41,7 @@ class TestApplicationTests {
             e.printStackTrace();
         }
         long endTime = System.currentTimeMillis(); //结束时间
-        System.out.println(count + " 个  接口请求总耗时 ： "+(endTime-begaintime)+"-----平均耗时为"+ ((endTime-begaintime)/count));
+        System.out.println(count + " 个  接口请求总耗时 ： "+(endTime-beginTime)+"-----平均耗时为"+ ((endTime-beginTime)/count));
 
         /*for (int i = 0; i < 100; i++) {
             postTest();

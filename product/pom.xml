@@ -104,6 +104,11 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>12.2.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>io.seata</groupId>
 			<artifactId>seata-spring-boot-starter</artifactId>
 			<version>1.4.2</version>

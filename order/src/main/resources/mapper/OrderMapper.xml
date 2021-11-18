@@ -2,4 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.order.mapper.OrderMapper">
 
+    <insert id="insertAll" parameterType="com.shop.order.entity.Orders">
+        insert into orders
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            product_id,
+            createtime,
+            createor,
+            status
+        </trim>
+
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+                #{item.productId},
+                #{item.createtime},
+                #{item.creator},
+                #{item.status}
+            )
+        </foreach>
+    </insert>
 </mapper>

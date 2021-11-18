@@ -9,6 +9,9 @@ import com.shop.order.vo.PageBiDdxxTJVO;
 import feign.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  *  Mapper 接口
@@ -21,4 +24,6 @@ import org.springframework.stereotype.Repository;
 public interface BiDdxxTJMapper extends BaseMapper<BiDdxxTJ> {
 
     IPage<PageBiDdxxTJVO> pageBiDdxxTJ(Page<PageBiDdxxTJVO> page, PageBiDdxxTJDTO dto);
+
+    List<Map<String, Object>> selectAa10s();
 }
