@@ -8,20 +8,6 @@ logging:
     com.cloud.agent: debug
     org.springframework.cloud.netflix.feign: debug
 
-#jedis:
-#  pool:
-#    host: 120.26.171.31
-#    port: 6379
-#    password: 123456
-#    database: 16
-#    timeout: 6000ms  # ??????????
-#    expireSeconds: 120
-#    commandTimeout: 10000  #redis???????
-#    config:
-#      maxTotal: 1000
-#      maxIdle: 10
-#      maxWaitMillis: 100000
-
 spring:
   redis:
     open: true  # 是否开启redis缓存  true开启   false关闭
@@ -29,7 +15,7 @@ spring:
     host: 120.26.171.31
     port: 6379
     password: wndsb@0825   # 密码（默认为空）
-    timeout: 6000ms    # 连接超时时长（毫秒）
+    timeout: 6000ms  # 连接超时时长（毫秒）
     expireSeconds: 120
     commandTimeout: 10000  #redis操作的超时时间
   datasource:
@@ -42,7 +28,7 @@ seata:
   application-id: ${spring.application.name}
   service:
     vgroup-mapping:
-      order-service-group: seata-server
+      product-service-group: seata-server
   config:
     file:
       name: file.conf
@@ -52,9 +38,8 @@ seata:
       application: seata-server
       service-url: http://120.26.171.31:9000/eureka/
       weight: 1
+  enable-auto-data-source-proxy: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:/mapper/**Mapper.xml
-
-  #  nohup  ./bin/seata-server.sh -p 8091 -h 120.26.171.31 -m file  >nohup.out 2>1 &

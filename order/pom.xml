@@ -71,11 +71,11 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.4.3.1</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
 			<version>3.4.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-starter-alibaba-seata</artifactId>

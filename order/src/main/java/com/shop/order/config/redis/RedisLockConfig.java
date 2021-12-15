@@ -15,7 +15,7 @@ public class RedisLockConfig {
     @Bean
     public Redisson redisson(){
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://localhost:6379").setPassword("123456")
+        config.useSingleServer().setAddress("redis://120.26.171.31:6380").setPassword("wndsb@0825")
                 .setDatabase(0);
         return (Redisson) Redisson.create(config);
     }

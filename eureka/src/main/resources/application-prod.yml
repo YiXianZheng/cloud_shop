@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:9000/eureka/
+      defaultZone: http://120.26.171.31:9000/eureka/
     registerWithEureka: false
     fetchRegistry: false
     healthcheck:

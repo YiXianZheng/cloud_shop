@@ -1,13 +1,27 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://106.13.234.26:8761/eureka/
+      defaultZone: http://127.0.0.1:9000/eureka/
 
 logging:
   level:
     com.cloud.agent: debug
     org.springframework.cloud.netflix.feign: debug
-
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  service:
+    vgroup-mapping:
+      order-service-group: seata-server
+  config:
+    file:
+      name: file.conf
+  registry:
+    type: eureka
+    eureka:
+      application: seata-server
+      service-url: http://120.26.171.31:9000/eureka/
+      weight: 1
 spring:
   redis:
     open: true  # 是否开启redis缓存  true开启   false关闭
@@ -20,9 +34,9 @@ spring:
     commandTimeout: 10000  #redis操作的超时时间
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.13.234.26:3307/seckill?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3307/seckill?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
-    password: sdwxn@0825
+    password: wndsb@0825
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

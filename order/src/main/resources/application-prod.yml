@@ -2,29 +2,13 @@ eureka:
   client:
     service-url:
       defaultZone: http://120.26.171.31:9000/eureka/
-
 logging:
   level:
     com.cloud.agent: debug
     org.springframework.cloud.netflix.feign: debug
 
-#jedis:
-#  pool:
-#    host: 120.26.171.31
-#    port: 6379
-#    password: 123456
-#    database: 16
-#    timeout: 6000ms  # ??????????
-#    expireSeconds: 120
-#    commandTimeout: 10000  #redis???????
-#    config:
-#      maxTotal: 1000
-#      maxIdle: 10
-#      maxWaitMillis: 100000
-
 spring:
   redis:
-    open: true  # 是否开启redis缓存  true开启   false关闭
     database: 0
     host: 120.26.171.31
     port: 6379

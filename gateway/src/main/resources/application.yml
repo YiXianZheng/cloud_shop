@@ -6,16 +6,14 @@ spring:
   cloud:
     inetutils:
       timeout-seconds: 30
+server:
+  port: 9002
 
 zuul:
   semaphore:
     max-semaphores: 5000
   #全部服务忽略的敏感头，也可以指定某一个具体的routes
   sensitive-headers: Cookie, Set-Cookie, Authorization, h, t, auth  #看需求取舍要忽略的请求头
-  routes:
-    aaaaaa:
-      path: /order/**
-      serviceId: order-service
 
 management:
   endpoints:
@@ -25,11 +23,6 @@ management:
   endpoint:
     health:
       show-components: always
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://106.13.234.26:8761/eureka/
 
 # 打印网关日志信息
 logging:

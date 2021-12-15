@@ -4,7 +4,7 @@
  Source Server         : 蜗小牛
  Source Server Type    : MySQL
  Source Server Version : 50651
- Source Host           : 106.13.234.26:3307
+ Source Host           : 120.26.171.31:3307
  Source Schema         : seata-server
 
  Target Server Type    : MySQL
