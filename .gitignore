@@ -2,3 +2,5 @@
 */target
 /.idea/
 *.iml
+*/*/rebel.xml
+*/src/main/resources/META-INF/*
